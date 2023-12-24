@@ -6,6 +6,7 @@ export default function HomeScreens() {
   return (
  
 <View style={styles.container}>
+  
   <FlatList
     data={restaurants}
     keyExtractor={(item) => item.id.toString()} 
