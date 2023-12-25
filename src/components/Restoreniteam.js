@@ -1,9 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Restoreniteam = ({ restaurant }) => {
+  const navigation = useNavigation();
+
+  const onPress = () => {
+  
+    navigation.navigate('Restorenitean'); // Pass the correct screen name here
+  };
   return (
-    <View style={styles.restaurantContainer}>
+    <Pressable  onPress={onPress}  style={styles.restaurantContainer}>
     <Image source={{ uri: restaurant.image }} style={styles.image} />
    
     <View style={styles.row}>
@@ -17,7 +24,7 @@ const Restoreniteam = ({ restaurant }) => {
 
     </View>
     </View>
-  </View>
+  </Pressable>
   );
 };
 

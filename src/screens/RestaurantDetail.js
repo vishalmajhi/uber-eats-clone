@@ -1,27 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList, Pressable } from 'react-native';
 import restaurants from '../../assets/data/restaurants.json';
 import { Ionicons } from '@expo/vector-icons';
 import DetailList from '../components/DetailList';
+import { useNavigation } from '@react-navigation/native';
 
 const RestaurantDetail = () => {
-  const firstRestaurant = restaurants[0]; 
+  const navigation = useNavigation();
+  const firstRestaurant = restaurants[0];
+
+  const handleBackPress = () => {
+    navigation.navigate("HomeScreens"); // Navigate back to the previous screen
+  };
+
   return (
     <View style={styles.page}>
       <Image source={{ uri: firstRestaurant.image }} style={styles.image} />
-      <View style={styles.backButton}>
+      <Pressable style={styles.backButton} onPress={handleBackPress}>
         <Ionicons name="arrow-back-circle" size={45} color="white" />
-      </View>
+      </Pressable>
       <View style={styles.detailsContainer}>
         <Text style={styles.title}>{firstRestaurant.name}</Text>
         <Text style={styles.subtitle}>
           Only on ${firstRestaurant.deliveryFee} - {firstRestaurant.minDeliveryTime}-{firstRestaurant.maxDeliveryTime} min
         </Text>
       </View>
-      <Text style={styles.manutext}>Manu</Text>
+      <Text style={styles.manutext}>Menu</Text>
       <FlatList
         data={firstRestaurant.dishes}
-    
         renderItem={({ item }) => <DetailList dish={item} />}
         showsVerticalScrollIndicator={false}
         style={styles.dishCard}
@@ -66,10 +72,9 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10,
   },
-  manutext:{
+  manutext: {
     fontSize: 18,
-  }
+  },
 });
 
 export default RestaurantDetail;
-
