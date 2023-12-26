@@ -4,13 +4,19 @@ import restaurants from '../../assets/data/restaurants.json';
 import { Ionicons } from '@expo/vector-icons';
 import DetailList from '../components/DetailList';
 import { useNavigation } from '@react-navigation/native';
+import {useRoute} from "@react-navigation/native";
 
 const RestaurantDetail = () => {
+
+const route=useRoute();
+const id=route.params?.id;
+
+
   const navigation = useNavigation();
-  const firstRestaurant = restaurants[0];
+  const firstRestaurant = restaurants[id-1];
 
   const handleBackPress = () => {
-    navigation.navigate("HomeScreens"); // Navigate back to the previous screen
+    navigation.navigate("HomeScreens"); 
   };
 
   return (

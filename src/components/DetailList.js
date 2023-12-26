@@ -1,16 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const DetailList = ({ dish }) => {
+  const navigation = useNavigation();
+
+  const DetailListPress = () => {
+    navigation.navigate("Order");
+  };
+
   return (
-    <View style={styles.card}>
+    <Pressable style={styles.card} onPress={DetailListPress}>
       <Image source={{ uri: dish.image }} style={styles.image} />
       <View style={styles.detailsContainer}>
         <Text style={styles.name}>{dish.name}</Text>
         <Text style={styles.description}>{dish.description}</Text>
         <Text style={styles.price}>Price: ${dish.price}</Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

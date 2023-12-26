@@ -8,6 +8,7 @@
   "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
   "dishes": [
     {
+      "id":"1",
       "name": "Butter Chicken",
       "description": "Tender chicken cooked in a rich, creamy tomato-based sauce.",
       "price": 12.50,

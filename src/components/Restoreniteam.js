@@ -7,7 +7,7 @@ const Restoreniteam = ({ restaurant }) => {
 
   const onPress = () => {
   
-    navigation.navigate('Restorenitean'); // Pass the correct screen name here
+    navigation.navigate('Restorenitean',{id:restaurant.id}); // Pass the correct screen name here
   };
   return (
     <Pressable  onPress={onPress}  style={styles.restaurantContainer}>
