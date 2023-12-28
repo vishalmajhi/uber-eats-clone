@@ -6,7 +6,7 @@ const DetailList = ({ dish }) => {
   const navigation = useNavigation();
 
   const DetailListPress = () => {
-    navigation.navigate("Order");
+    navigation.navigate("DetailDish");
   };
 
   return (
